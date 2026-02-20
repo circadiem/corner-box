@@ -1,0 +1,99 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+
+    <div class="site-footer__grid">
+
+      <!-- Column 1: Brand -->
+      <div class="footer-brand">
+        <a class="footer-brand__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+          {%- if settings.logo != blank -%}
+            {{
+              settings.logo
+              | image_url: width: 300
+              | image_tag:
+                loading: 'lazy',
+                alt: shop.name,
+                widths: '100, 200, 300'
+            }}
+          {%- else -%}
+            <span class="footer-brand__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        <p class="footer-brand__origin">
+          {{- settings.origin_line | default: 'Powered by Legends of Superheros. Est. 1993.' -}}
+        </p>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <nav class="footer-nav" aria-label="Footer navigation">
+        {%- if settings.vault_state == 'vault_open' -%}
+          <a class="footer-nav__link" href="{{ routes.collections_url }}/current-drop">The Drop</a>
+        {%- else -%}
+          <a class="footer-nav__link" href="{{ routes.root_url }}#drop-teaser">The Drop</a>
+        {%- endif -%}
+        <a class="footer-nav__link" href="{{ routes.blogs_url }}/the-ledger">The Ledger</a>
+        <a class="footer-nav__link" href="{{ routes.pages_url }}/about">About</a>
+        <a class="footer-nav__link" href="{{ routes.pages_url }}/private-client-list">Join the List</a>
+        <a class="footer-nav__link" href="{{ routes.pages_url }}/faq">FAQ & Policies</a>
+        <a class="footer-nav__link" href="{{ routes.pages_url }}/contact">Contact</a>
+      </nav>
+
+      <!-- Column 3: Email Signup -->
+      <div class="footer-signup">
+        <p class="footer-signup__tagline">
+          {{- settings.tagline | default: 'Thirteen hours before the world.' -}}
+        </p>
+        {% form 'customer', id: 'FooterEmailForm' %}
+          {%- if form.posted_successfully? -%}
+            <p class="text-small" style="color: var(--paper-white);">You're on the list.</p>
+          {%- else -%}
+            <div class="footer-signup__form">
+              <input
+                class="footer-signup__input"
+                type="email"
+                name="contact[email]"
+                id="FooterEmail"
+                placeholder="{{ settings.footer_email_placeholder | default: 'your@email.com' }}"
+                autocomplete="email"
+                required
+                aria-label="Email address"
+              >
+              <button class="footer-signup__btn" type="submit">
+                {{- settings.footer_join_button | default: 'Join' -}}
+              </button>
+            </div>
+          {%- endif -%}
+        {% endform %}
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="site-footer__bottom">
+      <span class="footer-bottom__left">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}.
+        All rights reserved.
+      </span>
+      <div class="footer-bottom__right">
+        {%- if settings.privacy_page != blank -%}
+          <a class="footer-bottom__link" href="{{ settings.privacy_page.url }}">Privacy</a>
+        {%- else -%}
+          <a class="footer-bottom__link" href="{{ routes.root_url }}policies/privacy-policy">Privacy</a>
+        {%- endif -%}
+        {%- if settings.terms_page != blank -%}
+          <a class="footer-bottom__link" href="{{ settings.terms_page.url }}">Terms</a>
+        {%- else -%}
+          <a class="footer-bottom__link" href="{{ routes.root_url }}policies/terms-of-service">Terms</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

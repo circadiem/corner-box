@@ -1,0 +1,29 @@
+<section class="archive-preview">
+  <div class="archive-preview__inner">
+
+    <div class="archive-preview__header reveal">
+      <span class="archive-preview__label">From the Archive</span>
+    </div>
+
+    {%- if settings.archive_collection != blank -%}
+      {%- assign archive = collections[settings.archive_collection] -%}
+      <div class="archive-preview__grid">
+        {%- for product in archive.products limit: 4 -%}
+          {% render 'product-card', product: product %}
+        {%- else -%}
+          <p class="text-small" style="grid-column: 1/-1;">Archive collection not yet populated.</p>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="text-small">No archive collection selected in theme settings.</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Archive Preview",
+  "settings": []
+}
+{% endschema %}

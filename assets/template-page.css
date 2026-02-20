@@ -1,0 +1,390 @@
+/* ============================================================
+   THE CORNER BOX — PAGE TEMPLATES
+   About, Private Client List, FAQ, Contact
+   ============================================================ */
+
+/* ── About Page ── */
+.page-about {
+  max-width: var(--max-w-content);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .page-about {
+    padding-inline: var(--space-sm);
+  }
+}
+
+.page-about__icon {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 0 auto var(--space-xl);
+  opacity: 0.9;
+}
+
+.page-about__label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: var(--space-xl);
+  display: block;
+}
+
+.page-about__letter {
+  text-align: left;
+}
+
+.page-about__letter p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--paper-white);
+  margin-bottom: var(--space-lg);
+}
+
+.page-about__letter p:last-of-type {
+  margin-bottom: var(--space-xl);
+}
+
+.page-about__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: var(--marvel-red);
+  color: var(--paper-white);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity var(--transition-base);
+}
+
+.page-about__cta:hover { opacity: 0.88; }
+
+/* ── Private Client List ── */
+.page-list {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .page-list {
+    padding-inline: var(--space-sm);
+  }
+}
+
+.page-list__inner {
+  max-width: 560px;
+  width: 100%;
+}
+
+.page-list__icon {
+  display: block;
+  width: 48px;
+  height: auto;
+  margin: 0 auto var(--space-lg);
+  opacity: 0.8;
+}
+
+.page-list__heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--paper-white);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.page-list__subheading {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--paper-white);
+  margin-bottom: var(--space-sm);
+}
+
+.page-list__body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--warm-gray);
+  line-height: 1.8;
+  margin-bottom: var(--space-xl);
+}
+
+.page-list__form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .page-list__form-row {
+    flex-direction: column;
+  }
+}
+
+.page-list__input {
+  flex: 1;
+  background: rgba(245, 245, 245, 0.06);
+  border: 1px solid var(--divider-strong);
+  color: var(--paper-white);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  padding: 14px var(--space-sm);
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.page-list__input::placeholder { color: var(--warm-gray); }
+.page-list__input:focus {
+  border-color: rgba(245, 245, 245, 0.3);
+  background: rgba(245, 245, 245, 0.09);
+}
+
+.page-list__btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--marvel-red);
+  color: var(--paper-white);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+  margin-bottom: var(--space-lg);
+}
+
+.page-list__btn:hover { opacity: 0.88; }
+
+.page-list__schedule {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--warm-gray);
+  letter-spacing: 0.06em;
+  line-height: 2;
+}
+
+/* ── FAQ Page ── */
+.page-faq {
+  max-width: 680px;
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .page-faq {
+    padding-inline: var(--space-sm);
+  }
+}
+
+.page-faq__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 400;
+  color: var(--paper-white);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--divider);
+}
+
+.faq-item__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-md) 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: var(--space-md);
+}
+
+.faq-item__question {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--paper-white);
+  line-height: 1.4;
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  color: var(--warm-gray);
+  transition: transform var(--transition-slow), color var(--transition-base);
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.faq-item__icon::before {
+  width: 12px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item__icon::after {
+  width: 1px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform var(--transition-slow), opacity var(--transition-base);
+}
+
+.faq-item.is-open .faq-item__icon {
+  color: var(--paper-white);
+}
+
+.faq-item.is-open .faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-item__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-slow);
+}
+
+.faq-item.is-open .faq-item__body {
+  max-height: 400px;
+}
+
+.faq-item__answer {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--warm-gray);
+  line-height: 1.8;
+  padding-bottom: var(--space-md);
+}
+
+/* ── Contact Page ── */
+.page-contact {
+  max-width: 520px;
+  margin-inline: auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .page-contact {
+    padding-inline: var(--space-sm);
+    min-height: auto;
+    padding-top: var(--space-xl);
+  }
+}
+
+.page-contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  color: var(--paper-white);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+}
+
+.contact-form__field {
+  margin-bottom: var(--space-md);
+}
+
+.contact-form__label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 8px;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  display: block;
+  width: 100%;
+  background: rgba(245, 245, 245, 0.05);
+  border: 1px solid var(--divider);
+  color: var(--paper-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px var(--space-sm);
+  transition: border-color var(--transition-base), background var(--transition-base);
+  resize: none;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: rgba(245, 245, 245, 0.3);
+  background: rgba(245, 245, 245, 0.08);
+  outline: none;
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: var(--warm-gray);
+}
+
+.contact-form__textarea {
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.contact-form__btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: var(--space-sm);
+  background: var(--marvel-red);
+  color: var(--paper-white);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.contact-form__btn:hover { opacity: 0.88; }
+
+.contact-success {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--paper-white);
+  text-align: center;
+  padding: var(--space-xl) 0;
+}

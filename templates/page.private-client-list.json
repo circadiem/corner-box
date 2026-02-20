@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "page-private-client-list": {
+      "type": "page-private-client-list",
+      "settings": {}
+    }
+  },
+  "order": ["page-private-client-list"]
+}

@@ -1,0 +1,41 @@
+<section class="drop-teaser vault-closed-only" id="drop-teaser">
+  <div class="drop-teaser__inner">
+    <p class="drop-teaser__eyebrow reveal">
+      {{- settings.next_drop_number | default: 'Drop 002' -}}
+    </p>
+
+    <h2 class="drop-teaser__title reveal">
+      {{- settings.next_drop_theme | default: 'The Bronze Age Files' -}}
+    </h2>
+
+    <p class="drop-teaser__body reveal">
+      {{- settings.next_drop_teaser | default: 'Thirty-one issues. Two keys. One grail. The Bronze Age, curated without compromise.' -}}
+    </p>
+
+    <div class="drop-teaser__stats reveal">
+      <div class="drop-teaser__stat">
+        <span class="drop-teaser__stat-value">{{ settings.next_drop_titles | default: 31 }}</span>
+        <span class="drop-teaser__stat-label">Titles</span>
+      </div>
+      <div class="drop-teaser__stat-divider" aria-hidden="true"></div>
+      <div class="drop-teaser__stat">
+        <span class="drop-teaser__stat-value">{{ settings.next_drop_units | default: 48 }}</span>
+        <span class="drop-teaser__stat-label">Units</span>
+      </div>
+      <div class="drop-teaser__stat-divider" aria-hidden="true"></div>
+      <div class="drop-teaser__stat">
+        <span class="drop-teaser__stat-value">
+          {{- settings.next_drop_date | default: 'Mar 1' | date: '%b %-d' -}}
+        </span>
+        <span class="drop-teaser__stat-label">Opens</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Drop Teaser",
+  "settings": []
+}
+{% endschema %}

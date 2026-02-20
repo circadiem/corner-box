@@ -1,0 +1,74 @@
+<div class="page-contact">
+  <h1 class="page-contact__title reveal">{{ 'pages.contact.title' | t }}</h1>
+
+  {% form 'contact', id: 'ContactForm' %}
+    {%- if form.posted_successfully? -%}
+      <p class="contact-success reveal">{{ 'pages.contact.success' | t }}</p>
+    {%- else -%}
+
+      {%- if form.errors -%}
+        <p class="text-small" style="color: var(--marvel-red); margin-bottom: var(--space-md);">
+          {{ form.errors | default_errors }}
+        </p>
+      {%- endif -%}
+
+      <div class="contact-form__field reveal">
+        <label class="contact-form__label" for="ContactName">{{ 'pages.contact.name' | t }}</label>
+        <input
+          class="contact-form__input"
+          type="text"
+          id="ContactName"
+          name="contact[name]"
+          autocomplete="name"
+          value="{{ form.name }}"
+        >
+      </div>
+
+      <div class="contact-form__field reveal">
+        <label class="contact-form__label" for="ContactEmail">{{ 'pages.contact.email' | t }}</label>
+        <input
+          class="contact-form__input"
+          type="email"
+          id="ContactEmail"
+          name="contact[email]"
+          autocomplete="email"
+          required
+          value="{{ form.email }}"
+        >
+      </div>
+
+      <div class="contact-form__field reveal">
+        <label class="contact-form__label" for="ContactSubject">{{ 'pages.contact.subject' | t }}</label>
+        <input
+          class="contact-form__input"
+          type="text"
+          id="ContactSubject"
+          name="contact[body][subject]"
+          value="{{ form.body[subject] }}"
+        >
+      </div>
+
+      <div class="contact-form__field reveal">
+        <label class="contact-form__label" for="ContactMessage">{{ 'pages.contact.message' | t }}</label>
+        <textarea
+          class="contact-form__textarea"
+          id="ContactMessage"
+          name="contact[body]"
+          rows="5"
+        >{{ form.body }}</textarea>
+      </div>
+
+      <button class="contact-form__btn reveal" type="submit">
+        {{ 'pages.contact.send' | t }}
+      </button>
+
+    {%- endif -%}
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>
+    {% if template.name == 'index' %}
+      {{ shop.name }} — {{ settings.tagline }}
+    {% elsif page_title %}
+      {{ page_title }} — {{ shop.name }}
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </title>
+
+  {% render 'meta-tags' %}
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 }}">
+  {%- else -%}
+    <link rel="icon" type="image/png" href="{{ 'favicon_the_corner_box.png' | asset_url }}">
+  {%- endif -%}
+
+  <!-- Prevent flash of white background -->
+  <style>html, body { background-color: #121212; }</style>
+
+  <!-- Google Fonts: Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'component-nav.css' | asset_url | stylesheet_tag }}
+  {{ 'component-footer.css' | asset_url | stylesheet_tag }}
+  {{ 'section-hero.css' | asset_url | stylesheet_tag }}
+  {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+  {{ 'template-product.css' | asset_url | stylesheet_tag }}
+  {{ 'template-page.css' | asset_url | stylesheet_tag }}
+  {{ 'template-blog.css' | asset_url | stylesheet_tag }}
+
+  {{ content_for_header }}
+</head>
+
+<body
+  class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}"
+  data-vault="{{ settings.vault_state }}"
+>
+  <a class="skip-to-content" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+
+  {% section 'header' %}
+
+  <main id="MainContent" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <script src="{{ 'animations.js' | asset_url }}" defer></script>
+</body>
+</html>

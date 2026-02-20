@@ -1,0 +1,32 @@
+<section class="hero vault-open-only" id="Hero">
+  <p class="hero__label reveal">
+    {{ settings.current_drop_number | default: 'Drop 001' }}
+    &nbsp;/&nbsp;
+    {{ settings.current_drop_theme | default: 'The Silver Age Vaults' }}
+  </p>
+
+  <h1 class="hero__title reveal">The Vault is open.</h1>
+
+  <div class="hero__meta reveal">
+    <div class="hero__meta-item">
+      <span class="hero__meta-value">{{ settings.current_drop_titles | default: 24 }}</span>
+      <span class="hero__meta-label">Titles</span>
+    </div>
+    <div class="hero__meta-divider" aria-hidden="true"></div>
+    <div class="hero__meta-item">
+      <span class="hero__meta-value">{{ settings.current_drop_units | default: 37 }}</span>
+      <span class="hero__meta-label">Units</span>
+    </div>
+  </div>
+
+  <a class="hero__cta reveal" href="{{ routes.collections_url }}/current-drop">
+    Enter the Vault
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero — Vault Open",
+  "settings": []
+}
+{% endschema %}

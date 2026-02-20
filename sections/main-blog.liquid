@@ -1,0 +1,74 @@
+<div class="blog-header">
+  <h1 class="blog-header__title reveal">{{ 'blogs.general.title' | t }}</h1>
+  <p class="blog-header__subtitle reveal">{{ 'blogs.general.subtitle' | t }}</p>
+</div>
+
+<!-- Tag Filter -->
+<div class="blog-tags reveal">
+  <a
+    class="blog-tag{% unless current_tags %} is-active{% endunless %}"
+    href="{{ blog.url }}"
+  >{{ 'blogs.tags.all' | t }}</a>
+
+  {%- for tag in blog.all_tags -%}
+    <a
+      class="blog-tag{% if current_tags contains tag %} is-active{% endif %}"
+      href="{{ blog.url }}/tagged/{{ tag | handle }}"
+    >{{ tag }}</a>
+  {%- else -%}
+    <a class="blog-tag" href="{{ blog.url }}/tagged/deep-dive">{{ 'blogs.tags.deep_dive' | t }}</a>
+    <a class="blog-tag" href="{{ blog.url }}/tagged/educational">{{ 'blogs.tags.educational' | t }}</a>
+    <a class="blog-tag" href="{{ blog.url }}/tagged/provenance">{{ 'blogs.tags.provenance' | t }}</a>
+  {%- endfor -%}
+</div>
+
+<!-- Article List -->
+<div class="blog-list">
+  {%- paginate blog.articles by 8 -%}
+    {%- for article in blog.articles -%}
+      <a class="blog-card reveal" href="{{ article.url }}">
+        {%- if article.tags.size > 0 -%}
+          <span class="blog-card__tag">{{ article.tags.first }}</span>
+        {%- endif -%}
+
+        <h2 class="blog-card__title">{{ article.title }}</h2>
+
+        {%- if article.excerpt -%}
+          <p class="blog-card__excerpt">{{ article.excerpt | strip_html | truncate: 160 }}</p>
+        {%- endif -%}
+
+        <span class="blog-card__meta">
+          {{ article.published_at | date: '%B %-d, %Y' }}
+        </span>
+      </a>
+    {%- else -%}
+      <p class="text-small" style="padding: var(--space-xl) 0; text-align: center;">
+        No entries yet. The Ledger is being assembled.
+      </p>
+    {%- endfor -%}
+
+    {%- if paginate.pages > 1 -%}
+      <div class="blog-pagination">
+        {%- if paginate.previous -%}
+          <a class="blog-pagination__link" href="{{ paginate.previous.url }}">
+            {{ 'blogs.pagination.newer' | t }}
+          </a>
+        {%- else -%}
+          <span></span>
+        {%- endif -%}
+        {%- if paginate.next -%}
+          <a class="blog-pagination__link" href="{{ paginate.next.url }}">
+            {{ 'blogs.pagination.older' | t }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+{%- comment -%}
+  Renders a product tile for grids.
+  Usage: {% render 'product-card', product: product %}
+{%- endcomment -%}
+
+<article class="product-card reveal">
+  <a href="{{ product.url }}" aria-label="{{ product.title }}">
+
+    <div class="product-card__image-wrap">
+      {%- if product.featured_image -%}
+        {{
+          product.featured_image
+          | image_url: width: 600
+          | image_tag:
+            class: 'product-card__image',
+            loading: 'lazy',
+            widths: '300, 600',
+            sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw',
+            alt: product.featured_image.alt | default: product.title
+        }}
+      {%- else -%}
+        <div class="product-card__image" style="background: var(--deep-obsidian);"></div>
+      {%- endif -%}
+
+      {% render 'sold-badge', product: product %}
+    </div>
+
+    <div class="product-card__info">
+      <h3 class="product-card__title">{{ product.title }}</h3>
+
+      {%- if product.metafields.custom.key_significance -%}
+        <p class="product-card__significance">
+          {{ product.metafields.custom.key_significance }}
+        </p>
+      {%- endif -%}
+
+      <div class="product-card__meta">
+        {%- if product.metafields.custom.grade -%}
+          <span class="product-card__grade">{{ product.metafields.custom.grade }}</span>
+        {%- endif -%}
+
+        {% render 'price', product: product %}
+      </div>
+    </div>
+
+  </a>
+</article>

@@ -1,0 +1,142 @@
+<div class="page-faq">
+  <h1 class="page-faq__title reveal">{{ 'pages.faq.title' | t }}</h1>
+
+  {%- if page.content != blank -%}
+    <div class="reveal">{{ page.content }}</div>
+  {%- else -%}
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">How do I know the grade is accurate?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          Every issue listed as CGC or CBCS graded carries the cert number in the condition
+          data table. You can verify the grade directly on the grading authority's website.
+          Raw (ungraded) books are photographed extensively and described honestly —
+          we note flaws we observe, including minor ones that don't affect our asking price.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">Do you accept returns?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          Yes, within 7 days of confirmed delivery, for any reason. The book must be
+          returned in the same condition as shipped. Return shipping is at the buyer's
+          expense unless the book arrived damaged or significantly misrepresented.
+          Contact us before shipping anything back.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">How do you ship? Is it insured?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          All orders ship fully insured. Slabbed (graded) books are double-boxed with foam
+          padding inside a rigid mailer. Raw books are boarded, bagged, and secured inside a
+          rigid flat mailer. We ship within 3 business days of purchase. Signature
+          confirmation is required on orders over $250.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">What is the Private Client List?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          The Private Client List is our early-access email list. Subscribers receive drop
+          notifications 12–16 hours before the general public — typically Friday evening for
+          a Saturday morning vault opening. There is no fee and no commitment. You simply
+          get to shop first.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">How often do you drop?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          Infrequently, and intentionally so. We don't list books until we're satisfied with
+          the curation, the photography, and the write-ups. Most drops are 20–50 issues.
+          We will not rush a drop to hit a schedule.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">Do you buy collections?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          Sometimes. We are selective and slow, so if you need a fast sale, we are
+          probably not the right buyer. If you have a significant collection and want a
+          thoughtful offer from someone who will read every book, contact us.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-item__btn" type="button" aria-expanded="false">
+        <span class="faq-item__question">What does "ALLOCATED" mean?</span>
+        <span class="faq-item__icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-item__body" role="region">
+        <p class="faq-item__answer">
+          Occasionally a book is reserved for a Private Client List member before the
+          public vault opens. "ALLOCATED" means the issue has been earmarked for a
+          specific buyer but the transaction is not yet complete. If an allocated
+          book becomes available, we will update the listing.
+        </p>
+      </div>
+    </div>
+
+  {%- endif -%}
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('.faq-item__btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('is-open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.is-open').forEach(function (open) {
+        open.classList.remove('is-open');
+        open.querySelector('.faq-item__btn').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Page",
+  "settings": []
+}
+{% endschema %}

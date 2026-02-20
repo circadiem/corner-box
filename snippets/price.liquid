@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders price or ALLOCATED for a product.
+  Usage: {% render 'price', product: product %}
+{%- endcomment -%}
+
+{%- if product.metafields.custom.allocated -%}
+  <span class="product-card__price product-card__price--sold">
+    {{- 'products.product.unavailable' | t -}}
+  </span>
+{%- elsif product.available -%}
+  <span class="product-card__price">
+    {{- product.price | money -}}
+  </span>
+{%- else -%}
+  <span class="product-card__price product-card__price--sold">
+    {{- 'products.product.sold_out' | t -}}
+  </span>
+{%- endif -%}

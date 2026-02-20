@@ -1,0 +1,60 @@
+<div class="collection-header">
+  <span class="collection-header__eyebrow reveal">
+    {%- if collection.metafields.custom.drop_number -%}
+      {{ collection.metafields.custom.drop_number }}
+    {%- else -%}
+      {{ 'collections.the_drop' | t }}
+    {%- endif -%}
+  </span>
+
+  <h1 class="collection-header__title reveal">
+    {%- if collection.metafields.custom.drop_theme -%}
+      {{ collection.metafields.custom.drop_theme }}
+    {%- else -%}
+      {{ collection.title }}
+    {%- endif -%}
+  </h1>
+
+  <p class="collection-header__meta reveal">
+    {{ collection.products_count }}
+    {{ 'collections.general.items_with_count_other' | t: count: collection.products_count }}
+  </p>
+</div>
+
+<div class="collection-main">
+  {%- if collection.products_count > 0 -%}
+    <div class="product-grid">
+      {%- for product in collection.products -%}
+        {% render 'product-card', product: product %}
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="pagination reveal" style="margin-top: var(--space-xl); display: flex; justify-content: space-between; align-items: center;">
+        {%- if paginate.previous -%}
+          <a class="btn btn--ghost" href="{{ paginate.previous.url }}">
+            &larr; {{ 'blogs.pagination.older' | t }}
+          </a>
+        {%- else -%}
+          <span></span>
+        {%- endif -%}
+        {%- if paginate.next -%}
+          <a class="btn btn--ghost" href="{{ paginate.next.url }}">
+            {{ 'blogs.pagination.newer' | t }} &rarr;
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- else -%}
+    <div class="collection-empty">
+      <p>The vault is empty right now.</p>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

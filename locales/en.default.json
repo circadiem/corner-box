@@ -1,0 +1,120 @@
+{
+  "general": {
+    "title": "The Corner Box",
+    "meta_description": "Curated vintage comics. {{ settings.tagline }}",
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "currency_symbol": "$"
+  },
+  "navigation": {
+    "the_drop": "The Drop",
+    "the_ledger": "The Ledger",
+    "about": "About",
+    "join_the_list": "Join the List",
+    "skip_to_content": "Skip to content",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Acquire",
+      "sold_out": "SOLD",
+      "unavailable": "ALLOCATED",
+      "quantity": "Quantity",
+      "description": "Issue Notes",
+      "view_product": "View Issue",
+      "sale_badge": "Featured",
+      "shipping": "Ships within 3 business days. Fully insured.",
+      "condition_label": "Condition Data"
+    },
+    "facets": {
+      "filter_by": "Filter",
+      "clear_all": "Clear",
+      "sort_by": "Sort",
+      "sort_options": {
+        "manual": "Featured",
+        "best-selling": "Most Acquired",
+        "title-ascending": "Title A–Z",
+        "title-descending": "Title Z–A",
+        "price-ascending": "Price: Low to High",
+        "price-descending": "Price: High to Low",
+        "created-ascending": "Oldest",
+        "created-descending": "Newest"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Selection",
+      "empty": "Your selection is empty.",
+      "note": "Order notes",
+      "note_placeholder": "Any special instructions for the Archivist…",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to Checkout",
+      "continue_shopping": "Continue Browsing",
+      "remove": "Remove"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "The Collection",
+      "items_with_count_one": "{{ count }} issue",
+      "items_with_count_other": "{{ count }} issues"
+    },
+    "the_drop": "The Drop",
+    "the_archive": "The Archive"
+  },
+  "blogs": {
+    "general": {
+      "title": "The Ledger",
+      "subtitle": "Essays on the art, history, and craft of collecting vintage comics.",
+      "read_more": "Read →",
+      "back": "← Back to The Ledger"
+    },
+    "tags": {
+      "all": "All",
+      "deep_dive": "Deep-Dive",
+      "educational": "Educational",
+      "provenance": "Provenance"
+    },
+    "pagination": {
+      "older": "← Older entries",
+      "newer": "Newer entries →"
+    }
+  },
+  "pages": {
+    "about": {
+      "label": "THE ARCHIVIST'S LETTER",
+      "cta": "Join the Private Client List"
+    },
+    "private_client_list": {
+      "heading": "Thirteen hours before the world.",
+      "subheading": "The Private Client List is how The Corner Box's best customers shop.",
+      "body": "Drop notifications arrive Friday evening, twelve to sixteen hours before public access opens Saturday morning. No raffles. No bots. First come, first served — to those who were already watching.",
+      "first_name": "First name",
+      "email": "Email address",
+      "cta": "Enter the List",
+      "schedule_1": "Notifications: Friday, 6–10 PM EST",
+      "schedule_2": "Vault opens: Saturday, 10 AM EST"
+    },
+    "faq": {
+      "title": "Questions & Policies"
+    },
+    "contact": {
+      "title": "Contact the Archivist",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "success": "Your message has been received.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "cart_count": "{{ count }} items in selection",
+    "close": "Close",
+    "loading": "Loading"
+  }
+}

@@ -1,0 +1,12 @@
+{%- comment -%}
+  Renders a SOLD or ALLOCATED badge overlay.
+  Usage: {% render 'sold-badge', product: product %}
+{%- endcomment -%}
+
+{%- unless product.available -%}
+  {%- if product.metafields.custom.allocated -%}
+    <span class="product-card__badge">{{ 'products.product.unavailable' | t }}</span>
+  {%- else -%}
+    <span class="product-card__badge">{{ 'products.product.sold_out' | t }}</span>
+  {%- endif -%}
+{%- endunless -%}

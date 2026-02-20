@@ -1,0 +1,82 @@
+{%- comment -%}
+  Condition Data table — pulled from product metafields.
+  All fields are optional; rows only render if value exists.
+{%- endcomment -%}
+
+<table class="condition-table">
+  <caption>{{ 'products.product.condition_label' | t }}</caption>
+  <tbody>
+    {%- if product.metafields.custom.publisher -%}
+      <tr>
+        <td>Publisher</td>
+        <td>{{ product.metafields.custom.publisher }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.cover_date -%}
+      <tr>
+        <td>Cover Date</td>
+        <td>{{ product.metafields.custom.cover_date }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.era -%}
+      <tr>
+        <td>Era</td>
+        <td>{{ product.metafields.custom.era }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.format -%}
+      <tr>
+        <td>Format</td>
+        <td>{{ product.metafields.custom.format }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.grade -%}
+      <tr>
+        <td>Grade</td>
+        <td>{{ product.metafields.custom.grade }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.grading_authority -%}
+      <tr>
+        <td>Grading Authority</td>
+        <td>{{ product.metafields.custom.grading_authority }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.cert_number -%}
+      <tr>
+        <td>Cert #</td>
+        <td>{{ product.metafields.custom.cert_number }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.first_appearance -%}
+      <tr>
+        <td>First Appearance</td>
+        <td>{{ product.metafields.custom.first_appearance }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.story_arc -%}
+      <tr>
+        <td>Story Arc</td>
+        <td>{{ product.metafields.custom.story_arc }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.writer -%}
+      <tr>
+        <td>Writer</td>
+        <td>{{ product.metafields.custom.writer }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.artist -%}
+      <tr>
+        <td>Artist</td>
+        <td>{{ product.metafields.custom.artist }}</td>
+      </tr>
+    {%- endif -%}
+    {%- if product.metafields.custom.print_run -%}
+      <tr>
+        <td>Print Run</td>
+        <td>{{ product.metafields.custom.print_run }}</td>
+      </tr>
+    {%- endif -%}
+  </tbody>
+</table>

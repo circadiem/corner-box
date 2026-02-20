@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main-drop-archive": {
+      "type": "main-drop-archive",
+      "settings": {}
+    }
+  },
+  "order": ["main-drop-archive"]
+}

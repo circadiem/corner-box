@@ -1,0 +1,209 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "The Corner Box",
+    "theme_version": "1.0.0",
+    "theme_author": "The Corner Box",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (wordmark)",
+        "info": "Upload the_corner_box_text_logo.png. Recommended width: 200px."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Upload favicon_the_corner_box.png. 32×32px."
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Structural icon",
+        "info": "Upload icon_the_corner_box.png. Used on About page and as watermark."
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Site tagline",
+        "default": "Thirteen hours before the world."
+      },
+      {
+        "type": "text",
+        "id": "origin_line",
+        "label": "Origin line",
+        "default": "Powered by Legends of Superheros. Est. 1993."
+      }
+    ]
+  },
+  {
+    "name": "Vault State",
+    "settings": [
+      {
+        "type": "select",
+        "id": "vault_state",
+        "label": "Vault state",
+        "options": [
+          { "value": "vault_closed", "label": "Vault Closed" },
+          { "value": "vault_open", "label": "Vault Open" }
+        ],
+        "default": "vault_closed",
+        "info": "Controls homepage hero and nav Drop link. Switch to 'Vault Open' when a drop is live."
+      }
+    ]
+  },
+  {
+    "name": "Current Drop",
+    "settings": [
+      {
+        "type": "text",
+        "id": "current_drop_number",
+        "label": "Drop number",
+        "default": "Drop 001"
+      },
+      {
+        "type": "text",
+        "id": "current_drop_theme",
+        "label": "Drop theme name",
+        "default": "The Silver Age Vaults"
+      },
+      {
+        "type": "number",
+        "id": "current_drop_titles",
+        "label": "Number of titles",
+        "default": 24
+      },
+      {
+        "type": "number",
+        "id": "current_drop_units",
+        "label": "Total units",
+        "default": 37
+      },
+      {
+        "type": "collection",
+        "id": "current_drop_collection",
+        "label": "Current drop collection",
+        "info": "Collection to display on the Vault Open homepage manifest."
+      }
+    ]
+  },
+  {
+    "name": "Next Drop",
+    "settings": [
+      {
+        "type": "text",
+        "id": "next_drop_number",
+        "label": "Next drop number",
+        "default": "Drop 002"
+      },
+      {
+        "type": "text",
+        "id": "next_drop_theme",
+        "label": "Next drop theme name",
+        "default": "The Bronze Age Files"
+      },
+      {
+        "type": "text",
+        "id": "next_drop_date",
+        "label": "Next drop date",
+        "default": "Saturday, March 1st at 10:00 AM EST"
+      },
+      {
+        "type": "textarea",
+        "id": "next_drop_teaser",
+        "label": "Drop teaser sentence",
+        "default": "Thirty-one issues. Two keys. One grail. The Bronze Age, curated without compromise."
+      },
+      {
+        "type": "number",
+        "id": "next_drop_titles",
+        "label": "Number of titles",
+        "default": 31
+      },
+      {
+        "type": "number",
+        "id": "next_drop_units",
+        "label": "Total units",
+        "default": 48
+      }
+    ]
+  },
+  {
+    "name": "Featured Article",
+    "settings": [
+      {
+        "type": "text",
+        "id": "featured_article_label",
+        "label": "Section label",
+        "default": "From The Ledger"
+      },
+      {
+        "type": "text",
+        "id": "featured_article_title",
+        "label": "Article title",
+        "default": "Why CGC 9.8 Isn't Always the Right Grade to Buy"
+      },
+      {
+        "type": "textarea",
+        "id": "featured_article_preview",
+        "label": "Two-sentence preview",
+        "default": "The difference between a 9.6 and a 9.8 is often invisible to the naked eye — but the price gap can exceed two thousand dollars. Here's when the premium is justified, and when it isn't."
+      },
+      {
+        "type": "url",
+        "id": "featured_article_url",
+        "label": "Article URL"
+      }
+    ]
+  },
+  {
+    "name": "Archive Preview",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "archive_collection",
+        "label": "Past drops collection",
+        "info": "A collection of sold-out items from previous drops for the homepage archive preview."
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_nav",
+        "label": "Footer navigation",
+        "default": "footer"
+      },
+      {
+        "type": "text",
+        "id": "footer_email_placeholder",
+        "label": "Email input placeholder",
+        "default": "your@email.com"
+      },
+      {
+        "type": "text",
+        "id": "footer_join_button",
+        "label": "Join button text",
+        "default": "Join"
+      },
+      {
+        "type": "page",
+        "id": "privacy_page",
+        "label": "Privacy policy page"
+      },
+      {
+        "type": "page",
+        "id": "terms_page",
+        "label": "Terms of service page"
+      }
+    ]
+  }
+]

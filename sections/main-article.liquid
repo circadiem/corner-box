@@ -1,0 +1,90 @@
+<article class="article-main">
+
+  <header class="article-header">
+    {%- if article.tags.size > 0 -%}
+      <a
+        class="article-header__series reveal"
+        href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}"
+      >
+        {{- article.tags.first -}}
+      </a>
+    {%- endif -%}
+
+    <h1 class="article-header__title reveal">{{ article.title }}</h1>
+
+    {%- if article.metafields.custom.subtitle -%}
+      <p class="article-header__subtitle reveal">
+        {{ article.metafields.custom.subtitle }}
+      </p>
+    {%- endif -%}
+
+    <time class="article-header__date reveal" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+      {{ article.published_at | date: '%B %-d, %Y' }}
+    </time>
+  </header>
+
+  <div class="article-body reveal">
+    {{ article.content }}
+  </div>
+
+  <!-- Related Product (conditional) -->
+  {%- if article.metafields.custom.related_product != blank -%}
+    {%- assign related = article.metafields.custom.related_product -%}
+    <div class="article-related-product reveal">
+      {%- if related.featured_image -%}
+        {{
+          related.featured_image
+          | image_url: width: 200
+          | image_tag:
+            class: 'article-related-product__image',
+            loading: 'lazy',
+            alt: related.title
+        }}
+      {%- endif -%}
+      <div>
+        <span class="article-related-product__label">Referenced Issue</span>
+        <p class="article-related-product__title">{{ related.title }}</p>
+        {%- if related.available -%}
+          <a class="article-related-product__link" href="{{ related.url }}">
+            {{ 'products.product.view_product' | t }} &rarr;
+          </a>
+        {%- else -%}
+          <span class="article-related-product__link" style="cursor: default;">
+            {{ 'products.product.sold_out' | t }}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <!-- Article Navigation -->
+  <nav class="article-nav reveal" aria-label="Article navigation">
+    {%- if blog.previous_article -%}
+      <a class="article-nav__link" href="{{ blog.previous_article }}">
+        &larr; Previous
+      </a>
+    {%- else -%}
+      <span></span>
+    {%- endif -%}
+
+    <a class="article-nav__link article-nav__back" href="{{ blog.url }}">
+      {{ 'blogs.general.back' | t }}
+    </a>
+
+    {%- if blog.next_article -%}
+      <a class="article-nav__link article-nav__link--next" href="{{ blog.next_article }}">
+        Next &rarr;
+      </a>
+    {%- else -%}
+      <span></span>
+    {%- endif -%}
+  </nav>
+
+</article>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}
