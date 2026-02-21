@@ -1,0 +1,25 @@
+<section class="hero vault-closed-only" id="Hero">
+  <p class="hero__label reveal">
+    {{ settings.next_drop_number | default: 'Drop 002' }}
+    &nbsp;/&nbsp;
+    {{ settings.next_drop_theme | default: 'Coming Soon' }}
+  </p>
+
+  <h1 class="hero__title reveal">The Vault is closed.</h1>
+
+  <p class="hero__subtitle reveal">
+    Next drop:&nbsp;
+    <strong>{{ settings.next_drop_date | default: 'Saturday, March 1st at 10:00 AM EST' }}</strong>
+  </p>
+
+  <a class="hero__cta reveal" href="{{ routes.pages_url }}/private-client-list">
+    Join the Private Client List
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero — Vault Closed",
+  "settings": []
+}
+{% endschema %}

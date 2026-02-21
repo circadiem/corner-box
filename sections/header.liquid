@@ -1,0 +1,141 @@
+<header class="site-header" id="SiteHeader" role="banner">
+  <div class="site-header__inner">
+
+    <!-- Logo -->
+    <a class="site-header__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {%- if settings.logo != blank -%}
+        {{
+          settings.logo
+          | image_url: width: 400
+          | image_tag:
+            loading: 'eager',
+            class: '',
+            widths: '100, 200, 400',
+            sizes: '200px',
+            alt: shop.name
+        }}
+      {%- else -%}
+        <span class="site-header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-header__nav" role="navigation" aria-label="Main navigation">
+      {%- if settings.vault_state == 'vault_open' -%}
+        <a class="nav-link vault-open-only" href="{{ routes.collections_url }}/current-drop">
+          {{- 'navigation.the_drop' | t -}}
+        </a>
+      {%- else -%}
+        <a class="nav-link vault-closed-only" href="{{ routes.root_url }}#drop-teaser">
+          {{- 'navigation.the_drop' | t -}}
+        </a>
+      {%- endif -%}
+
+      <a class="nav-link" href="{{ routes.blogs_url }}/the-ledger">
+        {{- 'navigation.the_ledger' | t -}}
+      </a>
+
+      <a class="nav-link" href="{{ routes.pages_url }}/about">
+        {{- 'navigation.about' | t -}}
+      </a>
+
+      <a class="nav-link nav-link--red" href="{{ routes.pages_url }}/private-client-list">
+        {{- 'navigation.join_the_list' | t -}}
+      </a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+      <a class="cart-link" href="{{ routes.cart_url }}" aria-label="{{ 'accessibility.cart_count' | t: count: cart.item_count }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count{% if cart.item_count > 0 %} is-visible{% endif %}" aria-hidden="true"></span>
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        class="hamburger"
+        id="HamburgerBtn"
+        aria-expanded="false"
+        aria-controls="MobileNav"
+        aria-label="{{ 'navigation.open_menu' | t }}"
+      >
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<nav class="mobile-nav" id="MobileNav" aria-label="Mobile navigation" role="navigation">
+  {%- if settings.vault_state == 'vault_open' -%}
+    <a class="mobile-nav__link vault-open-only" href="{{ routes.collections_url }}/current-drop">
+      {{- 'navigation.the_drop' | t -}}
+    </a>
+  {%- else -%}
+    <a class="mobile-nav__link vault-closed-only" href="{{ routes.root_url }}#drop-teaser">
+      {{- 'navigation.the_drop' | t -}}
+    </a>
+  {%- endif -%}
+
+  <a class="mobile-nav__link" href="{{ routes.blogs_url }}/the-ledger">
+    {{- 'navigation.the_ledger' | t -}}
+  </a>
+
+  <a class="mobile-nav__link" href="{{ routes.pages_url }}/about">
+    {{- 'navigation.about' | t -}}
+  </a>
+
+  <div class="mobile-nav__divider"></div>
+
+  <a class="mobile-nav__link mobile-nav__link--red" href="{{ routes.pages_url }}/private-client-list">
+    {{- 'navigation.join_the_list' | t -}}
+  </a>
+</nav>
+
+<script>
+(function () {
+  var btn = document.getElementById('HamburgerBtn');
+  var nav = document.getElementById('MobileNav');
+  var header = document.getElementById('SiteHeader');
+
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', function () {
+    var isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    nav.classList.toggle('is-open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close on nav link click
+  nav.querySelectorAll('.mobile-nav__link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      btn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll behavior
+  var lastScroll = 0;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    header.classList.toggle('is-scrolled', y > 20);
+    lastScroll = y;
+  }, { passive: true });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

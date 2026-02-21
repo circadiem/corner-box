@@ -1,0 +1,42 @@
+{%- comment -%}
+  SEO meta tags, Open Graph, Twitter Card.
+  Rendered in <head> via layout/theme.liquid.
+{%- endcomment -%}
+
+{%- assign og_title       = page_title | default: shop.name -%}
+{%- assign og_url         = canonical_url | default: request.origin -%}
+{%- assign og_description = page_description | default: shop.description | default: settings.tagline -%}
+
+{%- if og_description != blank -%}
+  <meta name="description" content="{{ og_description | escape }}">
+{%- endif -%}
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ og_url }}">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ og_url }}">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:type" content="{% if template.name == 'article' %}article{% elsif template.name == 'product' %}product{% else %}website{% endif %}">
+
+{%- if og_description != blank -%}
+  <meta property="og:description" content="{{ og_description | escape }}">
+{%- endif -%}
+
+{%- if template.name == 'product' and product.featured_image -%}
+  <meta property="og:image" content="{{ product.featured_image | image_url: width: 1200 }}">
+  <meta property="og:image:width" content="1200">
+{%- elsif template.name == 'article' and article.image -%}
+  <meta property="og:image" content="{{ article.image | image_url: width: 1200 }}">
+  <meta property="og:image:width" content="1200">
+{%- elsif settings.logo -%}
+  <meta property="og:image" content="{{ settings.logo | image_url: width: 800 }}">
+{%- endif -%}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+{%- if og_description != blank -%}
+  <meta name="twitter:description" content="{{ og_description | escape }}">
+{%- endif -%}

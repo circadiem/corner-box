@@ -1,0 +1,133 @@
+<div class="product-main">
+  <div class="product-layout">
+
+    <!-- Left: Images -->
+    <div class="product-images reveal">
+      <div class="product-images__hero" id="ProductHeroImage">
+        {%- if product.featured_image -%}
+          {{
+            product.featured_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'eager',
+              id: 'ProductMainImg',
+              widths: '600, 900, 1200',
+              sizes: '(max-width: 900px) 100vw, 55vw',
+              alt: product.featured_image.alt | default: product.title
+          }}
+        {%- else -%}
+          <div style="width:100%;height:100%;background:var(--deep-obsidian);"></div>
+        {%- endif -%}
+      </div>
+
+      {%- if product.images.size > 1 -%}
+        <div class="product-images__thumbs">
+          {%- for image in product.images -%}
+            <button
+              class="product-images__thumb{% if forloop.first %} is-active{% endif %}"
+              type="button"
+              data-image-url="{{ image | image_url: width: 1200 }}"
+              data-image-alt="{{ image.alt | default: product.title }}"
+              aria-label="View image {{ forloop.index }}"
+            >
+              {{
+                image
+                | image_url: width: 150
+                | image_tag:
+                  loading: 'lazy',
+                  alt: image.alt | default: product.title
+              }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Right: Details -->
+    <div class="product-details reveal">
+
+      <p class="product-details__breadcrumb">
+        <a href="{{ routes.collections_url }}">The Drop</a>
+        &nbsp;/&nbsp;
+        {{ product.title }}
+      </p>
+
+      <h1 class="product-details__title">{{ product.title }}</h1>
+
+      <div class="product-details__grade-row">
+        {%- if product.metafields.custom.grade -%}
+          <span class="product-details__grade">{{ product.metafields.custom.grade }}</span>
+        {%- endif -%}
+
+        {%- if product.available -%}
+          <span class="product-details__price">{{ product.price | money }}</span>
+        {%- else -%}
+          <span class="product-details__price product-details__price--sold">
+            {{ 'products.product.sold_out' | t }}
+          </span>
+        {%- endif -%}
+      </div>
+
+      {% render 'product-condition-table', product: product %}
+
+      {%- if product.description != blank -%}
+        <div class="product-description">
+          {{ product.description }}
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.ledger_article_url -%}
+        <a class="product-ledger-link" href="{{ product.metafields.custom.ledger_article_url }}">
+          <span class="product-ledger-link__label">From the Ledger</span>
+          <span class="product-ledger-link__title">
+            {{ product.metafields.custom.ledger_article_title | default: 'Read the full issue notes →' }}
+          </span>
+        </a>
+      {%- endif -%}
+
+      <div class="product-form__sticky">
+        {%- form 'product', product, id: 'ProductForm' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button
+            class="product-form__btn"
+            type="submit"
+            {%- unless product.available -%} disabled{%- endunless -%}
+          >
+            {%- if product.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <p class="product-shipping-note">{{ 'products.product.shipping' | t }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var thumbs = document.querySelectorAll('.product-images__thumb');
+  var mainImg = document.getElementById('ProductMainImg');
+  if (!thumbs.length || !mainImg) return;
+
+  thumbs.forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+      thumb.classList.add('is-active');
+      mainImg.src = thumb.dataset.imageUrl;
+      mainImg.alt = thumb.dataset.imageAlt;
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

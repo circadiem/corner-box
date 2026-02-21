@@ -1,0 +1,76 @@
+<div class="page-list">
+  <div class="page-list__inner">
+
+    {%- if settings.favicon != blank -%}
+      {{
+        settings.favicon
+        | image_url: width: 96
+        | image_tag:
+          class: 'page-list__icon reveal',
+          loading: 'eager',
+          alt: 'The Corner Box'
+      }}
+    {%- else -%}
+      <img
+        class="page-list__icon reveal"
+        src="{{ 'favicon_the_corner_box.png' | asset_url }}"
+        alt="The Corner Box"
+        loading="eager"
+        width="48"
+      >
+    {%- endif -%}
+
+    <h1 class="page-list__heading reveal">{{ 'pages.private_client_list.heading' | t }}</h1>
+
+    <p class="page-list__subheading reveal">{{ 'pages.private_client_list.subheading' | t }}</p>
+
+    <p class="page-list__body reveal">{{ 'pages.private_client_list.body' | t }}</p>
+
+    {% form 'customer', id: 'ClientListForm' %}
+      {%- if form.posted_successfully? -%}
+        <p class="page-list__heading reveal" style="font-size: 22px;">You're on the list.</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p class="text-small reveal" style="color: var(--marvel-red); margin-bottom: var(--space-md);">
+            {{ form.errors | default_errors }}
+          </p>
+        {%- endif -%}
+
+        <div class="page-list__form-row reveal">
+          <input
+            class="page-list__input"
+            type="text"
+            name="customer[first_name]"
+            placeholder="{{ 'pages.private_client_list.first_name' | t }}"
+            autocomplete="given-name"
+          >
+          <input
+            class="page-list__input"
+            type="email"
+            name="contact[email]"
+            placeholder="{{ 'pages.private_client_list.email' | t }}"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <button class="page-list__btn reveal" type="submit">
+          {{ 'pages.private_client_list.cta' | t }}
+        </button>
+      {%- endif -%}
+    {% endform %}
+
+    <p class="page-list__schedule reveal">
+      {{ 'pages.private_client_list.schedule_1' | t }}<br>
+      {{ 'pages.private_client_list.schedule_2' | t }}
+    </p>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Private Client List",
+  "settings": []
+}
+{% endschema %}

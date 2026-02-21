@@ -1,0 +1,47 @@
+<section class="manifest vault-open-only">
+  <div class="manifest__inner">
+
+    <div class="manifest__header reveal">
+      <span class="manifest__label">The Manifest</span>
+      <a class="manifest__link" href="{{ routes.collections_url }}/current-drop">
+        Enter the Vault &rarr;
+      </a>
+    </div>
+
+    {%- if settings.current_drop_collection != blank -%}
+      {%- assign drop_collection = collections[settings.current_drop_collection] -%}
+      {%- for product in drop_collection.products limit: 8 -%}
+        <a class="manifest__item reveal" href="{{ product.url }}">
+          <div class="manifest__item-info">
+            <p class="manifest__item-title">{{ product.title }}</p>
+            <p class="manifest__item-meta">
+              {%- if product.metafields.custom.publisher -%}
+                {{ product.metafields.custom.publisher }}
+              {%- endif -%}
+              {%- if product.metafields.custom.grade -%}
+                &nbsp;&middot;&nbsp;{{ product.metafields.custom.grade }}
+              {%- endif -%}
+            </p>
+          </div>
+          <span class="manifest__item-price{% unless product.available %} manifest__item-price--sold{% endunless %}">
+            {%- unless product.available -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- else -%}
+              {{ product.price | money }}
+            {%- endunless -%}
+          </span>
+        </a>
+      {%- else -%}
+        <p class="text-small" style="padding: var(--space-lg) 0;">No items in the current drop.</p>
+      {%- endfor -%}
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Homepage Manifest",
+  "settings": []
+}
+{% endschema %}

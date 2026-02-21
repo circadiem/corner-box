@@ -1,0 +1,39 @@
+<div class="drop-archive">
+  <div class="collection-header" style="max-width: none; padding-inline: 0; margin-bottom: var(--space-xl);">
+    <h1 class="collection-header__title reveal">{{ 'collections.the_archive' | t }}</h1>
+  </div>
+
+  {%- for col in collections -%}
+    {%- if col.tags contains 'past-drop' -%}
+      <div class="drop-archive__drop">
+        <div class="drop-archive__drop-header reveal">
+          {%- if col.metafields.custom.drop_number -%}
+            <span class="drop-archive__drop-number">{{ col.metafields.custom.drop_number }}</span>
+          {%- endif -%}
+          <h2 class="drop-archive__drop-theme">
+            <a href="{{ col.url }}" style="color: inherit; text-decoration: none;">
+              {%- if col.metafields.custom.drop_theme -%}
+                {{ col.metafields.custom.drop_theme }}
+              {%- else -%}
+                {{ col.title }}
+              {%- endif -%}
+            </a>
+          </h2>
+        </div>
+
+        <div class="drop-archive__grid">
+          {%- for product in col.products limit: 4 -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Drop Archive",
+  "settings": []
+}
+{% endschema %}

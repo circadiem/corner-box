@@ -1,0 +1,65 @@
+<div class="page-about">
+
+  {%- if settings.icon != blank -%}
+    {{
+      settings.icon
+      | image_url: width: 240
+      | image_tag:
+        class: 'page-about__icon reveal',
+        loading: 'eager',
+        alt: 'The Corner Box icon'
+    }}
+  {%- else -%}
+    <img
+      class="page-about__icon reveal"
+      src="{{ 'icon_the_corner_box.png' | asset_url }}"
+      alt="The Corner Box"
+      loading="eager"
+      width="120"
+    >
+  {%- endif -%}
+
+  <span class="page-about__label reveal">{{ 'pages.about.label' | t }}</span>
+
+  <div class="page-about__letter">
+    <div class="reveal">
+      {{ page.content }}
+    </div>
+
+    {%- if page.content == blank -%}
+      <p class="reveal">
+        The Corner Box began as a question: what would it look like to sell vintage comics
+        the way a gallery sells prints? Not out of a longbox. Not alphabetized under a
+        fluorescent light. But presented — each issue as an object, with context, with care.
+      </p>
+      <p class="reveal">
+        We source selectively. We photograph every copy ourselves. We write condition notes
+        that describe what you're actually buying, not just what a grading service decided
+        in 2019. The grade matters. So does everything the grade doesn't tell you.
+      </p>
+      <p class="reveal">
+        Our drops are infrequent by design. We don't list anything we wouldn't want to own
+        ourselves. Every issue on this site has been through our hands, under our lights,
+        and past our own standard before it reaches you.
+      </p>
+      <p class="reveal">
+        If you're serious about collecting, we'd like to earn your attention.
+      </p>
+      <p class="reveal" style="font-style: italic; color: var(--warm-gray);">
+        — The Archivist
+      </p>
+    {%- endif -%}
+  </div>
+
+  <a class="page-about__cta reveal" href="{{ routes.pages_url }}/private-client-list">
+    {{ 'pages.about.cta' | t }}
+  </a>
+
+</div>
+
+{% schema %}
+{
+  "name": "About Page",
+  "settings": []
+}
+{% endschema %}
