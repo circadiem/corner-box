@@ -1,23 +1,16 @@
+{%- assign feature_blog = blogs['the-ledger'] -%}
+{%- assign latest = feature_blog.articles.first -%}
+
+{%- assign article_title = settings.featured_article_title | default: latest.title | default: 'The Anatomy of a Key Issue: Amazing Fantasy #15' -%}
+{%- assign article_preview = settings.featured_article_preview | default: latest.excerpt | strip_html | default: "Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history of how it was made, nearly wasn't, and what it means now." -%}
+{%- assign article_href = settings.featured_article_url | default: latest.url | default: routes.blogs_url | append: '/the-ledger' -%}
+{%- assign has_article = settings.featured_article_url | default: latest.url -%}
+
 <section class="ledger-feature">
   <div class="ledger-feature__inner">
     <span class="ledger-feature__label reveal">
       {{- settings.featured_article_label | default: 'From The Ledger' -}}
     </span>
-
-    {%- assign article_title = settings.featured_article_title | default: 'The Anatomy of a Key Issue: Amazing Fantasy #15' -%}
-    {%- assign article_preview = settings.featured_article_preview | default: "Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history of how it was made, nearly wasn't, and what it means now." -%}
-    {%- assign article_href = settings.featured_article_url | default: routes.blogs_url | append: '/the-ledger' -%}
-    {%- if settings.featured_article_url != blank -%}
-      <a href="{{ settings.featured_article_url }}">
-        <h2 class="ledger-feature__title reveal">
-          {{- settings.featured_article_title | default: "Why CGC 9.8 Isn't Always the Right Grade to Buy" -}}
-        </h2>
-      </a>
-    {%- else -%}
-      <h2 class="ledger-feature__title reveal">
-        {{- settings.featured_article_title | default: "Why CGC 9.8 Isn't Always the Right Grade to Buy" -}}
-      </h2>
-    {%- endif -%}
 
     <a href="{{ article_href }}">
       <h2 class="ledger-feature__title reveal">{{ article_title }}</h2>
@@ -26,7 +19,7 @@
     <p class="ledger-feature__preview reveal">{{ article_preview }}</p>
 
     <a class="ledger-feature__read reveal" href="{{ article_href }}">
-      {%- if settings.featured_article_url != blank -%}
+      {%- if has_article -%}
         Read &rarr;
       {%- else -%}
         View The Ledger &rarr;
