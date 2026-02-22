@@ -26,11 +26,7 @@
 
       <!-- Column 2: Navigation -->
       <nav class="footer-nav" aria-label="Footer navigation">
-        {%- if settings.vault_state == 'vault_open' -%}
-          <a class="footer-nav__link" href="{{ routes.collections_url }}/current-drop">The Drop</a>
-        {%- else -%}
-          <a class="footer-nav__link" href="{{ routes.root_url }}#drop-teaser">The Drop</a>
-        {%- endif -%}
+        <a class="footer-nav__link" href="/collections/current-drop">The Drop</a>
         <a class="footer-nav__link" href="{{ routes.blogs_url }}/the-ledger">The Ledger</a>
         <a class="footer-nav__link" href="{{ routes.pages_url }}/about">About</a>
         <a class="footer-nav__link" href="{{ routes.pages_url }}/private-client-list">Join the List</a>

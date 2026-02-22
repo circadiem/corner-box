@@ -15,8 +15,8 @@
       </a>
     </div>
 
-    {%- if settings.current_drop_collection != blank -%}
-      {%- assign drop_collection = collections[settings.current_drop_collection] -%}
+    {%- assign drop_collection = collections['current-drop'] -%}
+    {%- if drop_collection.products.size > 0 -%}
       {%- for product in drop_collection.products limit: 8 -%}
         <a class="manifest__item reveal" href="{{ product.url }}">
           <div class="manifest__item-info">

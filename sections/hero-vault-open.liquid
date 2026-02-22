@@ -1,7 +1,4 @@
-{%- assign drop_collection = nil -%}
-{%- if settings.current_drop_collection != blank -%}
-  {%- assign drop_collection = collections[settings.current_drop_collection] -%}
-{%- endif -%}
+{%- assign drop_collection = collections['current-drop'] -%}
 
 {%- if drop_collection -%}
   {%- assign total_issues = drop_collection.products.size -%}
