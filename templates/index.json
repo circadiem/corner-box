@@ -1,41 +1,13 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {
-    "hero-vault-closed": {
-      "type": "hero-vault-closed",
-      "settings": {}
-    },
-    "hero-vault-open": {
-      "type": "hero-vault-open",
-      "settings": {}
-    },
-    "homepage-drop-teaser": {
-      "type": "homepage-drop-teaser",
-      "settings": {}
-    },
-    "homepage-manifest": {
-      "type": "homepage-manifest",
-      "settings": {}
-    },
-    "homepage-ledger-feature": {
-      "type": "homepage-ledger-feature",
-      "settings": {}
-    },
-    "homepage-brand-statement": {
-      "type": "homepage-brand-statement",
-      "settings": {}
-    },
-    "homepage-archive-preview": {
-      "type": "homepage-archive-preview",
-      "settings": {}
-    }
-  },
-  "order": [
-    "hero-vault-closed",
-    "hero-vault-open",
-    "homepage-drop-teaser",
-    "homepage-manifest",
-    "homepage-ledger-feature",
-    "homepage-brand-statement",
-    "homepage-archive-preview"
-  ]
+  "sections": {},
+  "order": []
 }
