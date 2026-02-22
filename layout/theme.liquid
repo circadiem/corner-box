@@ -23,8 +23,8 @@
     <link rel="icon" type="image/png" href="{{ 'favicon_the_corner_box.png' | asset_url }}">
   {%- endif -%}
 
-  <!-- Prevent flash of white background -->
-  <style>html, body { background-color: #121212; }</style>
+  <!-- Prevent flash of dark background -->
+  <style>html, body { background-color: #FAFAF8; }</style>
 
   <!-- Google Fonts: Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,10 +44,7 @@
   {{ content_for_header }}
 </head>
 
-<body
-  class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}"
-  data-vault="{{ settings.vault_state }}"
->
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
   <a class="skip-to-content" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
 
   {% section 'header' %}

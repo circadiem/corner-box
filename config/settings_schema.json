@@ -1,1 +1,141 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "The Corner Box",
+    "theme_version": "1.0.0",
+    "theme_author": "The Corner Box",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (wordmark)",
+        "info": "Upload the_corner_box_text_logo.png. Recommended width: 200px."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Upload favicon_the_corner_box.png. 32×32px."
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Structural icon",
+        "info": "Upload icon_the_corner_box.png. Used on About page and as watermark."
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Site tagline",
+        "default": "Thirteen hours before the world."
+      },
+      {
+        "type": "text",
+        "id": "origin_line",
+        "label": "Origin line",
+        "default": "Powered by Legends of Superheros. Est. 1993."
+      }
+    ]
+  },
+  {
+    "name": "Current Drop",
+    "settings": [
+      {
+        "type": "text",
+        "id": "current_drop_number",
+        "label": "Drop number",
+        "default": "Drop 001"
+      },
+      {
+        "type": "text",
+        "id": "current_drop_theme",
+        "label": "Drop theme name",
+        "default": "The Silver Age Vaults"
+      },
+      {
+        "type": "number",
+        "id": "current_drop_titles",
+        "label": "Number of issues",
+        "default": 8
+      },
+      {
+        "type": "number",
+        "id": "current_drop_units",
+        "label": "Units available",
+        "default": 5
+      },
+      {
+        "type": "collection",
+        "id": "current_drop_collection",
+        "label": "Current drop collection",
+        "info": "Collection to display on the homepage manifest. Leave blank to show demo items."
+      }
+    ]
+  },
+  {
+    "name": "Featured Article",
+    "settings": [
+      {
+        "type": "text",
+        "id": "featured_article_label",
+        "label": "Section label",
+        "default": "From The Ledger"
+      },
+      {
+        "type": "text",
+        "id": "featured_article_title",
+        "label": "Article title",
+        "default": "The Anatomy of a Key Issue: Amazing Fantasy #15"
+      },
+      {
+        "type": "textarea",
+        "id": "featured_article_preview",
+        "label": "Two-sentence preview",
+        "default": "Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history of how it was made, nearly wasn't, and what it means now."
+      },
+      {
+        "type": "url",
+        "id": "featured_article_url",
+        "label": "Article URL"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_nav",
+        "label": "Footer navigation",
+        "default": "footer"
+      },
+      {
+        "type": "text",
+        "id": "footer_email_placeholder",
+        "label": "Email input placeholder",
+        "default": "your@email.com"
+      },
+      {
+        "type": "text",
+        "id": "footer_join_button",
+        "label": "Join button text",
+        "default": "Join"
+      },
+      {
+        "type": "page",
+        "id": "privacy_page",
+        "label": "Privacy policy page"
+      },
+      {
+        "type": "page",
+        "id": "terms_page",
+        "label": "Terms of service page"
+      }
+    ]
+  }
+]

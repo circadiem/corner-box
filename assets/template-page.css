@@ -58,7 +58,7 @@
   justify-content: center;
   padding: 16px 40px;
   background: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
@@ -139,7 +139,7 @@
 
 .page-list__input {
   flex: 1;
-  background: rgba(245, 245, 245, 0.06);
+  background: rgba(0, 0, 0, 0.04);
   border: 1px solid var(--divider-strong);
   color: var(--paper-white);
   font-family: var(--font-ui);
@@ -150,15 +150,15 @@
 
 .page-list__input::placeholder { color: var(--warm-gray); }
 .page-list__input:focus {
-  border-color: rgba(245, 245, 245, 0.3);
-  background: rgba(245, 245, 245, 0.09);
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .page-list__btn {
   width: 100%;
   padding: 16px;
   background: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
@@ -335,7 +335,7 @@
 .contact-form__textarea {
   display: block;
   width: 100%;
-  background: rgba(245, 245, 245, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   border: 1px solid var(--divider);
   color: var(--paper-white);
   font-family: var(--font-body);
@@ -347,8 +347,8 @@
 
 .contact-form__input:focus,
 .contact-form__textarea:focus {
-  border-color: rgba(245, 245, 245, 0.3);
-  background: rgba(245, 245, 245, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.06);
   outline: none;
 }
 
@@ -367,7 +367,7 @@
   padding: 16px;
   margin-top: var(--space-sm);
   background: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;

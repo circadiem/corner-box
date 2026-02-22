@@ -42,9 +42,43 @@
         </span>
       </a>
     {%- else -%}
-      <p class="text-small" style="padding: var(--space-xl) 0; text-align: center;">
-        No entries yet. The Ledger is being assembled.
-      </p>
+      {%- comment -%} Demo articles — shown when no blog posts exist yet {%- endcomment -%}
+
+      <a class="blog-card reveal" href="#">
+        <span class="blog-card__tag">Deep-Dive</span>
+        <h2 class="blog-card__title">Why CGC 9.8 Isn't Always the Right Grade to Buy</h2>
+        <p class="blog-card__excerpt">The difference between a 9.6 and a 9.8 is often invisible to the naked eye — but the price gap can exceed two thousand dollars. Here's when the premium is justified, and when it isn't.</p>
+        <span class="blog-card__meta">February 15, 2026</span>
+      </a>
+
+      <a class="blog-card reveal" href="#">
+        <span class="blog-card__tag">Educational</span>
+        <h2 class="blog-card__title">The Silver Age Key Issue Index: What Actually Holds Value in 2026</h2>
+        <p class="blog-card__excerpt">Not every first appearance is equal. We ranked 40 Silver Age keys by price stability, cultural relevance, and collector demand — and a few of the results are genuinely surprising.</p>
+        <span class="blog-card__meta">February 8, 2026</span>
+      </a>
+
+      <a class="blog-card reveal" href="#">
+        <span class="blog-card__tag">Provenance</span>
+        <h2 class="blog-card__title">On the Trail of a Pedigree Collection: Six Months in Denver</h2>
+        <p class="blog-card__excerpt">A retired schoolteacher. A storage unit in suburban Colorado. And somewhere inside it, an intact run of early Marvels that hadn't been touched since 1971. The story of how we found them.</p>
+        <span class="blog-card__meta">January 27, 2026</span>
+      </a>
+
+      <a class="blog-card reveal" href="#">
+        <span class="blog-card__tag">Educational</span>
+        <h2 class="blog-card__title">Raw vs. Slabbed: A Practical Guide for Serious Collectors</h2>
+        <p class="blog-card__excerpt">Graded slabs provide certainty. Raw copies offer intimacy. The right choice depends on what you're optimizing for — and most collectors are optimizing for the wrong thing.</p>
+        <span class="blog-card__meta">January 14, 2026</span>
+      </a>
+
+      <a class="blog-card reveal" href="#">
+        <span class="blog-card__tag">Deep-Dive</span>
+        <h2 class="blog-card__title">The Anatomy of a Key Issue: Amazing Fantasy #15</h2>
+        <p class="blog-card__excerpt">Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history.</p>
+        <span class="blog-card__meta">December 30, 2025</span>
+      </a>
+
     {%- endfor -%}
 
     {%- if paginate.pages > 1 -%}

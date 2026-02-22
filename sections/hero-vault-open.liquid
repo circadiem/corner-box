@@ -1,4 +1,4 @@
-<section class="hero vault-open-only" id="Hero">
+<section class="hero" id="Hero">
   <p class="hero__label reveal">
     {{ settings.current_drop_number | default: 'Drop 001' }}
     &nbsp;/&nbsp;
@@ -9,13 +9,18 @@
 
   <div class="hero__meta reveal">
     <div class="hero__meta-item">
-      <span class="hero__meta-value">{{ settings.current_drop_titles | default: 24 }}</span>
-      <span class="hero__meta-label">Titles</span>
+      <span class="hero__meta-value">{{ settings.current_drop_titles | default: 8 }}</span>
+      <span class="hero__meta-label">Issues</span>
     </div>
     <div class="hero__meta-divider" aria-hidden="true"></div>
     <div class="hero__meta-item">
-      <span class="hero__meta-value">{{ settings.current_drop_units | default: 37 }}</span>
-      <span class="hero__meta-label">Units</span>
+      <span class="hero__meta-value">{{ settings.current_drop_units | default: 5 }}</span>
+      <span class="hero__meta-label">Available</span>
+    </div>
+    <div class="hero__meta-divider" aria-hidden="true"></div>
+    <div class="hero__meta-item">
+      <span class="hero__meta-value" style="color: var(--marvel-red);">3</span>
+      <span class="hero__meta-label">Sold</span>
     </div>
   </div>
 
