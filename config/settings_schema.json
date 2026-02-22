@@ -55,7 +55,7 @@
         "type": "text",
         "id": "current_drop_theme",
         "label": "Drop theme name",
-        "default": "The Silver Age Vaults"
+        "default": "The Debut"
       },
       {
         "type": "number",

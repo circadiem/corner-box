@@ -7,7 +7,7 @@
           {{- settings.current_drop_number | default: 'Drop 001' -}}
         </span>
         <span class="manifest__label">
-          {{- settings.current_drop_theme | default: 'The Silver Age Vaults' -}}
+          {{- settings.current_drop_theme | default: 'The Debut' -}}
         </span>
       </div>
       <a class="manifest__link" href="{{ routes.collections_url }}/current-drop">
@@ -41,7 +41,7 @@
       {%- endfor -%}
     {%- else -%}
 
-      {%- comment -%} Demo inventory — Drop 001: The Silver Age Vaults {%- endcomment -%}
+      {%- comment -%} Demo inventory — Drop 001: The Debut {%- endcomment -%}
       <a class="manifest__item reveal" href="#">
         <div class="manifest__item-info">
           <p class="manifest__item-title">Amazing Fantasy #15 &mdash; 1st Appearance of Spider-Man</p>

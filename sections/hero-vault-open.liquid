@@ -1,25 +1,47 @@
+{%- assign drop_collection = nil -%}
+{%- if settings.current_drop_collection != blank -%}
+  {%- assign drop_collection = collections[settings.current_drop_collection] -%}
+{%- endif -%}
+
+{%- if drop_collection -%}
+  {%- assign total_issues = drop_collection.products.size -%}
+  {%- assign available_count = 0 -%}
+  {%- assign sold_count = 0 -%}
+  {%- for product in drop_collection.products -%}
+    {%- if product.available -%}
+      {%- assign available_count = available_count | plus: 1 -%}
+    {%- else -%}
+      {%- assign sold_count = sold_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign total_issues = settings.current_drop_titles | default: 8 -%}
+  {%- assign available_count = settings.current_drop_units | default: 5 -%}
+  {%- assign sold_count = 3 -%}
+{%- endif -%}
+
 <section class="hero" id="Hero">
   <p class="hero__label reveal">
     {{ settings.current_drop_number | default: 'Drop 001' }}
     &nbsp;/&nbsp;
-    {{ settings.current_drop_theme | default: 'The Silver Age Vaults' }}
+    {{ settings.current_drop_theme | default: 'The Debut' }}
   </p>
 
   <h1 class="hero__title reveal">The Vault is open.</h1>
 
   <div class="hero__meta reveal">
     <div class="hero__meta-item">
-      <span class="hero__meta-value">{{ settings.current_drop_titles | default: 8 }}</span>
+      <span class="hero__meta-value">{{ total_issues }}</span>
       <span class="hero__meta-label">Issues</span>
     </div>
     <div class="hero__meta-divider" aria-hidden="true"></div>
     <div class="hero__meta-item">
-      <span class="hero__meta-value">{{ settings.current_drop_units | default: 5 }}</span>
+      <span class="hero__meta-value">{{ available_count }}</span>
       <span class="hero__meta-label">Available</span>
     </div>
     <div class="hero__meta-divider" aria-hidden="true"></div>
     <div class="hero__meta-item">
-      <span class="hero__meta-value" style="color: var(--marvel-red);">3</span>
+      <span class="hero__meta-value" style="color: var(--marvel-red);">{{ sold_count }}</span>
       <span class="hero__meta-label">Sold</span>
     </div>
   </div>
