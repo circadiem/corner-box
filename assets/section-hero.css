@@ -354,10 +354,33 @@
   margin-bottom: var(--space-lg);
 }
 
-.brand-statement__text:last-child {
+.brand-statement__text:last-of-type {
   font-style: italic;
   color: var(--warm-gray);
-  margin-bottom: 0;
+}
+
+.brand-statement__ctas {
+  display: flex;
+  gap: 32px;
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.brand-statement__cta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--divider-strong);
+  padding-bottom: 2px;
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.brand-statement__cta:hover {
+  color: var(--marvel-red);
+  border-bottom-color: var(--marvel-red);
 }
 
 /* ── Archive Preview Section ── */
