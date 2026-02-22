@@ -1,8 +1,15 @@
-<section class="manifest vault-open-only">
+<section class="manifest">
   <div class="manifest__inner">
 
     <div class="manifest__header reveal">
-      <span class="manifest__label">The Manifest</span>
+      <div>
+        <span class="manifest__drop-number">
+          {{- settings.current_drop_number | default: 'Drop 001' -}}
+        </span>
+        <span class="manifest__label">
+          {{- settings.current_drop_theme | default: 'The Silver Age Vaults' -}}
+        </span>
+      </div>
       <a class="manifest__link" href="{{ routes.collections_url }}/current-drop">
         Enter the Vault &rarr;
       </a>
@@ -31,9 +38,74 @@
             {%- endunless -%}
           </span>
         </a>
-      {%- else -%}
-        <p class="text-small" style="padding: var(--space-lg) 0;">No items in the current drop.</p>
       {%- endfor -%}
+    {%- else -%}
+
+      {%- comment -%} Demo inventory — Drop 001: The Silver Age Vaults {%- endcomment -%}
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Amazing Fantasy #15 &mdash; 1st Appearance of Spider-Man</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Aug 1962 &middot; CGC 2.0</p>
+        </div>
+        <span class="manifest__item-price manifest__item-price--sold">SOLD</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Fantastic Four #4 &mdash; 1st Silver Age Sub-Mariner</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; May 1962 &middot; CGC 5.5</p>
+        </div>
+        <span class="manifest__item-price">$1,850</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Journey into Mystery #83 &mdash; 1st Appearance of Thor</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Aug 1962 &middot; CGC 3.0</p>
+        </div>
+        <span class="manifest__item-price manifest__item-price--sold">SOLD</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">X-Men #1 &mdash; 1st Appearance of the X-Men &amp; Magneto</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Sep 1963 &middot; CGC 4.0</p>
+        </div>
+        <span class="manifest__item-price">$2,400</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Tales of Suspense #39 &mdash; 1st Appearance of Iron Man</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Mar 1963 &middot; CGC 3.5</p>
+        </div>
+        <span class="manifest__item-price manifest__item-price--sold">SOLD</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Brave and the Bold #28 &mdash; 1st Appearance of the Justice League</p>
+          <p class="manifest__item-meta">DC Comics &middot; Feb 1960 &middot; CGC 4.5</p>
+        </div>
+        <span class="manifest__item-price">$3,100</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Strange Tales #110 &mdash; 1st Appearance of Doctor Strange</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Jul 1963 &middot; CGC 6.0</p>
+        </div>
+        <span class="manifest__item-price">$1,650</span>
+      </a>
+
+      <a class="manifest__item reveal" href="#">
+        <div class="manifest__item-info">
+          <p class="manifest__item-title">Amazing Spider-Man #1 &mdash; Spider-Man Meets the Fantastic Four</p>
+          <p class="manifest__item-meta">Marvel Comics &middot; Mar 1963 &middot; CGC 3.0</p>
+        </div>
+        <span class="manifest__item-price">$3,950</span>
+      </a>
+
     {%- endif -%}
 
   </div>

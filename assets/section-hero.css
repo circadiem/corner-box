@@ -86,7 +86,7 @@
   justify-content: center;
   padding: 16px 40px;
   background: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
@@ -198,6 +198,15 @@
   border-bottom: 1px solid var(--divider);
 }
 
+.manifest__drop-number {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--marvel-red);
+  margin-right: 16px;
+}
+
 .manifest__label {
   font-family: var(--font-ui);
   font-size: 11px;
@@ -232,7 +241,7 @@
 }
 
 .manifest__item:hover {
-  background: rgba(245, 245, 245, 0.02);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .manifest__item-info {
@@ -318,7 +327,7 @@
   color: var(--paper-white);
   text-decoration: none;
   padding-bottom: 2px;
-  border-bottom: 1px solid rgba(245, 245, 245, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   transition: border-color var(--transition-base);
 }
 

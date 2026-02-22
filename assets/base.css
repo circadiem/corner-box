@@ -5,14 +5,14 @@
 
 /* ── Design Tokens ── */
 :root {
-  --obsidian:       #121212;
-  --paper-white:    #F5F5F5;
+  --obsidian:       #FAFAF8;   /* canvas — warm near-white */
+  --paper-white:    #1C1C1C;   /* ink — soft near-black */
   --marvel-red:     #B81D24;
-  --warm-gray:      #8A8A8A;
-  --deep-obsidian:  #0A0A0A;
+  --warm-gray:      #767676;
+  --deep-obsidian:  #F0EEE9;   /* surface — footer, image placeholders */
 
-  --divider:        rgba(245, 245, 245, 0.08);
-  --divider-strong: rgba(245, 245, 245, 0.12);
+  --divider:        rgba(0, 0, 0, 0.09);
+  --divider-strong: rgba(0, 0, 0, 0.15);
 
   --font-display:  'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body:     Georgia, 'Times New Roman', serif;
@@ -71,7 +71,7 @@ body {
   left: var(--space-sm);
   padding: var(--space-xs) var(--space-sm);
   background: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
   font-family: var(--font-ui);
   font-size: 13px;
   text-decoration: none;
@@ -115,7 +115,7 @@ em     { font-style: italic; }
 /* ── Selection ── */
 ::selection {
   background-color: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
 }
 
 /* ── Images ── */
@@ -226,7 +226,7 @@ hr {
 
 .btn--primary {
   background-color: var(--marvel-red);
-  color: var(--paper-white);
+  color: #FAFAF8;
 }
 
 .btn--primary:hover {
@@ -240,7 +240,7 @@ hr {
 }
 
 .btn--ghost:hover {
-  border-color: rgba(245, 245, 245, 0.4);
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
 .btn--text {
@@ -256,10 +256,6 @@ hr {
 .btn--text:hover {
   opacity: 0.75;
 }
-
-/* ── Vault State Visibility ── */
-[data-vault="vault_closed"] .vault-open-only  { display: none !important; }
-[data-vault="vault_open"]   .vault-closed-only { display: none !important; }
 
 /* ── Scroll Reveal ── */
 .reveal {

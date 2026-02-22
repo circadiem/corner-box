@@ -4,31 +4,23 @@
       {{- settings.featured_article_label | default: 'From The Ledger' -}}
     </span>
 
-    {%- if settings.featured_article_url != blank -%}
-      <a href="{{ settings.featured_article_url }}">
-        <h2 class="ledger-feature__title reveal">
-          {{- settings.featured_article_title | default: 'Why CGC 9.8 Isn\'t Always the Right Grade to Buy' -}}
-        </h2>
-      </a>
-    {%- else -%}
-      <h2 class="ledger-feature__title reveal">
-        {{- settings.featured_article_title | default: 'Why CGC 9.8 Isn\'t Always the Right Grade to Buy' -}}
-      </h2>
-    {%- endif -%}
+    {%- assign article_title = settings.featured_article_title | default: 'The Anatomy of a Key Issue: Amazing Fantasy #15' -%}
+    {%- assign article_preview = settings.featured_article_preview | default: "Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history of how it was made, nearly wasn't, and what it means now." -%}
+    {%- assign article_href = settings.featured_article_url | default: routes.blogs_url | append: '/the-ledger' -%}
 
-    <p class="ledger-feature__preview reveal">
-      {{- settings.featured_article_preview | default: "The difference between a 9.6 and a 9.8 is often invisible to the naked eye — but the price gap can exceed two thousand dollars. Here's when the premium is justified, and when it isn't." -}}
-    </p>
+    <a href="{{ article_href }}">
+      <h2 class="ledger-feature__title reveal">{{ article_title }}</h2>
+    </a>
 
-    {%- if settings.featured_article_url != blank -%}
-      <a class="ledger-feature__read reveal" href="{{ settings.featured_article_url }}">
+    <p class="ledger-feature__preview reveal">{{ article_preview }}</p>
+
+    <a class="ledger-feature__read reveal" href="{{ article_href }}">
+      {%- if settings.featured_article_url != blank -%}
         Read &rarr;
-      </a>
-    {%- else -%}
-      <a class="ledger-feature__read reveal" href="{{ routes.blogs_url }}/the-ledger">
+      {%- else -%}
         View The Ledger &rarr;
-      </a>
-    {%- endif -%}
+      {%- endif -%}
+    </a>
   </div>
 </section>
 

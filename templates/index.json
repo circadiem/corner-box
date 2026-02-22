@@ -1,15 +1,7 @@
 {
   "sections": {
-    "hero-vault-closed": {
-      "type": "hero-vault-closed",
-      "settings": {}
-    },
     "hero-vault-open": {
       "type": "hero-vault-open",
-      "settings": {}
-    },
-    "homepage-drop-teaser": {
-      "type": "homepage-drop-teaser",
       "settings": {}
     },
     "homepage-manifest": {
@@ -23,19 +15,12 @@
     "homepage-brand-statement": {
       "type": "homepage-brand-statement",
       "settings": {}
-    },
-    "homepage-archive-preview": {
-      "type": "homepage-archive-preview",
-      "settings": {}
     }
   },
   "order": [
-    "hero-vault-closed",
     "hero-vault-open",
-    "homepage-drop-teaser",
     "homepage-manifest",
     "homepage-ledger-feature",
-    "homepage-brand-statement",
-    "homepage-archive-preview"
+    "homepage-brand-statement"
   ]
 }
