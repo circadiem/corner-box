@@ -48,7 +48,8 @@
   opacity: 0.7;
 }
 
-.footer-brand__icon {
+/* Monogram icon — overrides the generic img rule above */
+.footer-brand__logo img.footer-brand__icon {
   width: 48px;
   height: auto;
   display: block;
