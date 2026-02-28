@@ -34,6 +34,40 @@
   margin-bottom: var(--space-sm);
 }
 
+.collection-header__description {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: var(--warm-gray);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.collection-header__description p {
+  margin-bottom: var(--space-sm);
+}
+
+.collection-header__ledger-link {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  text-decoration: none;
+  border-bottom: 1px solid var(--divider-strong);
+  padding-bottom: 2px;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
+  transition: color var(--transition-base), border-color var(--transition-base);
+}
+
+.collection-header__ledger-link:hover {
+  color: var(--marvel-red);
+  border-bottom-color: var(--marvel-red);
+}
+
 .collection-header__meta {
   font-family: var(--font-ui);
   font-size: 13px;

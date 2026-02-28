@@ -15,7 +15,13 @@
             alt: shop.name
         }}
       {%- else -%}
-        <span class="site-header__logo-text">{{ shop.name }}</span>
+        <img
+          class="site-header__logo-img"
+          src="{{ 'the_corner_box_text_logo.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          width="180"
+          loading="eager"
+        >
       {%- endif -%}
     </a>
 
@@ -25,7 +31,7 @@
         {{- 'navigation.the_drop' | t -}}
       </a>
 
-      <a class="nav-link" href="{{ routes.blogs_url }}/the-ledger">
+      <a class="nav-link" href="{{ routes.blogs_url }}/ledger">
         {{- 'navigation.the_ledger' | t -}}
       </a>
 
@@ -72,7 +78,7 @@
     {{- 'navigation.the_drop' | t -}}
   </a>
 
-  <a class="mobile-nav__link" href="{{ routes.blogs_url }}/the-ledger">
+  <a class="mobile-nav__link" href="{{ routes.blogs_url }}/ledger">
     {{- 'navigation.the_ledger' | t -}}
   </a>
 

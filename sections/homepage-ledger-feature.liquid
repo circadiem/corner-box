@@ -1,9 +1,9 @@
-{%- assign feature_blog = blogs['the-ledger'] -%}
+{%- assign feature_blog = blogs['ledger'] -%}
 {%- assign latest = feature_blog.articles.first -%}
 
 {%- assign article_title = settings.featured_article_title | default: latest.title | default: 'The Anatomy of a Key Issue: Amazing Fantasy #15' -%}
 {%- assign article_preview = settings.featured_article_preview | default: latest.excerpt | strip_html | default: "Published in August 1962 as a try-out vehicle the editors expected to cancel, Amazing Fantasy #15 became the most consequential comic book of the twentieth century. Here is the full history of how it was made, nearly wasn't, and what it means now." -%}
-{%- assign article_href = settings.featured_article_url | default: latest.url | default: routes.blogs_url | append: '/the-ledger' -%}
+{%- assign article_href = settings.featured_article_url | default: latest.url | default: '/blogs/ledger' -%}
 {%- assign has_article = settings.featured_article_url | default: latest.url -%}
 
 <section class="ledger-feature">

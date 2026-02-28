@@ -6,17 +6,24 @@
       <!-- Column 1: Brand -->
       <div class="footer-brand">
         <a class="footer-brand__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-          {%- if settings.logo != blank -%}
+          {%- if settings.icon != blank -%}
             {{
-              settings.logo
-              | image_url: width: 300
+              settings.icon
+              | image_url: width: 120
               | image_tag:
+                class: 'footer-brand__icon',
                 loading: 'lazy',
                 alt: shop.name,
-                widths: '100, 200, 300'
+                widths: '48, 96, 120'
             }}
           {%- else -%}
-            <span class="footer-brand__logo-text">{{ shop.name }}</span>
+            <img
+              class="footer-brand__icon"
+              src="{{ 'icon_the_corner_box.png' | asset_url }}"
+              alt="{{ shop.name }}"
+              width="48"
+              loading="lazy"
+            >
           {%- endif -%}
         </a>
         <p class="footer-brand__origin">
@@ -27,7 +34,7 @@
       <!-- Column 2: Navigation -->
       <nav class="footer-nav" aria-label="Footer navigation">
         <a class="footer-nav__link" href="/collections/current-drop">The Drop</a>
-        <a class="footer-nav__link" href="{{ routes.blogs_url }}/the-ledger">The Ledger</a>
+        <a class="footer-nav__link" href="/blogs/ledger">The Ledger</a>
         <a class="footer-nav__link" href="{{ routes.pages_url }}/about">About</a>
         <a class="footer-nav__link" href="{{ routes.pages_url }}/private-client-list">Join the List</a>
         <a class="footer-nav__link" href="{{ routes.pages_url }}/faq">FAQ & Policies</a>

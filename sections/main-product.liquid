@@ -119,6 +119,8 @@
       thumbs.forEach(function (t) { t.classList.remove('is-active'); });
       thumb.classList.add('is-active');
       mainImg.src = thumb.dataset.imageUrl;
+      mainImg.srcset = '';
+      mainImg.removeAttribute('sizes');
       mainImg.alt = thumb.dataset.imageAlt;
     });
   });
