@@ -20,7 +20,7 @@
           {%- endif -%}
         </a>
         <p class="footer-brand__origin">
-          {{- settings.origin_line | default: 'Powered by Legends of Superheros. Est. 1993.' -}}
+          {{- settings.origin_line | default: 'Powered by Legends of Superheros. Est. 1994.' -}}
         </p>
       </div>
 
@@ -37,7 +37,7 @@
       <!-- Column 3: Email Signup -->
       <div class="footer-signup">
         <p class="footer-signup__tagline">
-          {{- settings.tagline | default: 'Thirteen hours before the world.' -}}
+          {{- settings.tagline | default: 'History. Preserved.' -}}
         </p>
         {% form 'customer', id: 'FooterEmailForm' %}
           {%- if form.posted_successfully? -%}
