@@ -7,14 +7,6 @@
     <div class="collection-header__description reveal">{{ collection.description }}</div>
   {%- endif -%}
 
-  {%- assign ledger_url = settings.current_drop_ledger_url | default: '/blogs/ledger' -%}
-  <a class="collection-header__ledger-link reveal" href="{{ ledger_url }}">
-    Browse The Ledger &rarr;
-  </a>
-
-  <p class="collection-header__meta reveal">
-    {{ 'collections.general.items_with_count_other' | t: count: collection.products_count }}
-  </p>
 </div>
 
 <div class="collection-main">
