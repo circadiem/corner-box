@@ -74,6 +74,12 @@
         "id": "current_drop_collection",
         "label": "Current drop collection",
         "info": "Collection to display on the homepage manifest. Leave blank to show demo items."
+      },
+      {
+        "type": "url",
+        "id": "current_drop_ledger_url",
+        "label": "Ledger article URL for this drop",
+        "info": "Link to the full write-up in The Ledger. Update the default value in settings_schema.json for each drop."
       }
     ]
   },

@@ -1,22 +1,18 @@
 <div class="collection-header">
-  <span class="collection-header__eyebrow reveal">
-    {%- if collection.metafields.custom.drop_number -%}
-      {{ collection.metafields.custom.drop_number }}
-    {%- else -%}
-      {{ 'collections.the_drop' | t }}
-    {%- endif -%}
-  </span>
-
   <h1 class="collection-header__title reveal">
-    {%- if collection.metafields.custom.drop_theme -%}
-      {{ collection.metafields.custom.drop_theme }}
-    {%- else -%}
-      {{ collection.title }}
-    {%- endif -%}
+    {{- settings.current_drop_number | default: 'Drop 001' -}}: {{- settings.current_drop_theme | default: 'The Debut' -}}
   </h1>
 
+  {%- if collection.description != blank -%}
+    <div class="collection-header__description reveal">{{ collection.description }}</div>
+  {%- endif -%}
+
+  {%- assign ledger_url = settings.current_drop_ledger_url | default: '/blogs/ledger' -%}
+  <a class="collection-header__ledger-link reveal" href="{{ ledger_url }}">
+    Browse The Ledger &rarr;
+  </a>
+
   <p class="collection-header__meta reveal">
-    {{ collection.products_count }}
     {{ 'collections.general.items_with_count_other' | t: count: collection.products_count }}
   </p>
 </div>
